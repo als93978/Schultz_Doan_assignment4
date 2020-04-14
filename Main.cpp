@@ -71,7 +71,7 @@ int main(int argc, char * argv[]) {
 	    break;
 	}
 	    
-	case 'q': { // quit command that stops the hile loop and exits the program
+	case 'q': { // quit command that stops the while loop and exits the program
 	    cout << "Quitting program...\n" << endl;
 	    loop = false;
 	    break;
