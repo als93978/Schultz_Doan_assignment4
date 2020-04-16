@@ -35,6 +35,9 @@ class BinaryTree {
     // Author: Austin Schultz
     void retrieve(ItemType &item, bool &found) const;
 
+    // Author: Austin Schultz
+    void search(TreeType* node, ItemType& item, bool& found) const;
+    
     // Author: David Doan
     void preOrder() const;
 
@@ -49,7 +52,6 @@ class BinaryTree {
 
     // Author: Austin Schultz
     void postOrderTraversal(TreeType* node) const;
-    
     
     // Author: David Doan
     int getLength() const;

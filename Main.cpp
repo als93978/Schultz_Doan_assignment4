@@ -37,10 +37,20 @@ int main(int argc, char * argv[]) {
     ItemType item7;
     item7.initialize(65);
     tree.insert(item7);
-    
+
+    // TRAVERSAL FUNCTION TEST
     //tree.inOrder();
     //tree.postOrder();
 
+    // RETRIEVE/SEARCH FUNCTION TEST
+    // ItemType testItem;
+    // testItem.initialize(45);
+    
+    // bool found = false;
+    // tree.retrieve(testItem, found);
+
+    // cout << found << endl;
+    
     // MAIN CODE
     
     // BinaryTree list;

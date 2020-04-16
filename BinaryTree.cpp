@@ -58,6 +58,26 @@ void BinaryTree::putItem(ItemType item, TreeType *&tree) {
     }
 }
 
+void BinaryTree::retrieve(ItemType& item, bool& found) const {
+    search(root, item, found);
+}
+
+void BinaryTree::search(TreeType* node, ItemType& item, bool& found) const {
+    if(node == nullptr)
+	found = false;
+
+    else if(item.compareTo(node->key) == EQUAL)
+	found = true;
+
+    else {
+	if(item.compareTo(node->key) == LESS)
+	    search(node->left, item, found);
+
+	else if(item.compareTo(node->key) == GREATER)
+	    search(node->right, item, found);
+    }
+}
+
 void BinaryTree::inOrder() const {
     inOrderTraversal(root);
     cout << endl;
