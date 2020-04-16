@@ -57,11 +57,19 @@ void BinaryTree::putItem(ItemType item, TreeType *&tree) {
 	}
     }
 }
-	
 
-	
-	    
-	
+void BinaryTree::inOrder() const {
+    inOrderTraversal(root);
+    cout << endl;
+}
 
+void BinaryTree::inOrderTraversal(TreeType* node) const {
+    if(node != nullptr) {
+	inOrderTraversal(node->left);
 
+	cout << node->key.getValue() << " ";
+
+	inOrderTraversal(node->right);
+    }
+}
 
