@@ -73,3 +73,18 @@ void BinaryTree::inOrderTraversal(TreeType* node) const {
     }
 }
 
+void BinaryTree::postOrder() const {
+    postOrderTraversal(root);
+    cout << endl;
+}
+
+void BinaryTree::postOrderTraversal(TreeType* node) const {
+    if(node != nullptr) {
+	postOrderTraversal(node->left);
+	
+	postOrderTraversal(node->right);
+	
+	cout << node->key.getValue() << " ";
+    }
+}
+

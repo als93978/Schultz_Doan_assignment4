@@ -47,6 +47,10 @@ class BinaryTree {
     // Author: Austin Schultz
     void postOrder() const;
 
+    // Author: Austin Schultz
+    void postOrderTraversal(TreeType* node) const;
+    
+    
     // Author: David Doan
     int getLength() const;
 

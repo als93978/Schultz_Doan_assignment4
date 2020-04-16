@@ -38,8 +38,11 @@ int main(int argc, char * argv[]) {
     item7.initialize(65);
     tree.insert(item7);
     
-    tree.inOrder();
+    //tree.inOrder();
+    //tree.postOrder();
 
+    // MAIN CODE
+    
     // BinaryTree list;
     // ItemType item;
     // int input;
