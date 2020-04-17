@@ -78,6 +78,19 @@ void BinaryTree::search(TreeType* node, ItemType& item, bool& found) const {
     }
 }
 
+void BinaryTree::preOrder() const {
+    preOrderTraversal(root);
+    cout << endl;
+}
+
+void BinaryTree::preOrderTraversal(TreeType* node) const {
+    if (node != nullptr) {
+	cout << node->key.getValue() << " ";
+	preOrderTraversal(node->left);
+	preOrderTraversal(node->right);
+    }
+}
+
 void BinaryTree::inOrder() const {
     inOrderTraversal(root);
     cout << endl;
@@ -108,3 +121,6 @@ void BinaryTree::postOrderTraversal(TreeType* node) const {
     }
 }
 
+int BinaryTree::getLength() const {
+    return length;
+}
