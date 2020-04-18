@@ -39,8 +39,9 @@ int main(int argc, char * argv[]) {
     tree.insert(item7);
 
     // TRAVERSAL FUNCTION TEST
-    //tree.inOrder();
-    //tree.postOrder();
+    tree.preOrder();
+    tree.inOrder();
+    tree.postOrder();
 
     // RETRIEVE/SEARCH FUNCTION TEST
     // ItemType testItem;
