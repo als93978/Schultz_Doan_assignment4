@@ -41,6 +41,9 @@ class BinaryTree {
     // Author: David Doan
     void preOrder() const;
 
+    // Author: David Doan
+    void preOrderTraversal(TreeType* node) const;
+
     // Author: Austin Schultz
     void inOrder() const;
 

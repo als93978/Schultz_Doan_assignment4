@@ -80,7 +80,7 @@ void BinaryTree::search(TreeType* node, ItemType& item, bool& found) const {
 
 void BinaryTree::preOrder() const {
     preOrderTraversal(root);
-    cout << end;
+    cout << endl;
 }
 
 void BinaryTree::preOrderTraversal(TreeType* node) const {
