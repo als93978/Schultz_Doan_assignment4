@@ -5,38 +5,42 @@
 
 using namespace std;
 
-// author: David Doan
+// author: David Doan and Austin Schultz
 int main(int argc, char * argv[]) {
-    // TESTING CODE
-    BinaryTree tree;
+    // // TESTING CODE
+    // BinaryTree tree;
 
-    ItemType item1;
-    item1.initialize(50);
-    tree.insert(item1);
+    // ItemType item1;
+    // item1.initialize(50);
+    // tree.insert(item1);
 
-    ItemType item2;
-    item2.initialize(35);
-    tree.insert(item2);
+    // ItemType item2;
+    // item2.initialize(35);
+    // tree.insert(item2);
 
-    ItemType item3;
-    item3.initialize(45);
-    tree.insert(item3);
+    // ItemType item3;
+    // item3.initialize(45);
+    // tree.insert(item3);
 
-    ItemType item4;
-    item4.initialize(73);
-    tree.insert(item4);
+    // ItemType item4;
+    // item4.initialize(73);
+    // tree.insert(item4);
 
-    ItemType item5;
-    item5.initialize(85);
-    tree.insert(item5);
+    // ItemType item5;
+    // item5.initialize(85);
+    // tree.insert(item5);
 
-    ItemType item6;
-    item6.initialize(10);
-    tree.insert(item6);
+    // ItemType item6;
+    // item6.initialize(10);
+    // tree.insert(item6);
 
-    ItemType item7;
-    item7.initialize(65);
-    tree.insert(item7);
+    // ItemType item7;
+    // item7.initialize(65);
+    // tree.insert(item7);
+
+    // ItemType item8;
+    // item8.initialize(5);
+    // tree.insert(item8);
 
     // TRAVERSAL FUNCTION TEST
     //tree.inOrder();
@@ -50,6 +54,13 @@ int main(int argc, char * argv[]) {
     // tree.retrieve(testItem, found);
 
     // cout << found << endl;
+
+    // DELETE ITEM FUNCTION TEST
+    // tree.inOrder();
+    
+    // tree.deleteItem(item1);
+
+    // tree.inOrder();
     
     // MAIN CODE
     

@@ -58,6 +58,70 @@ void BinaryTree::putItem(ItemType item, TreeType *&tree) {
     }
 }
 
+void BinaryTree::deleteItem(ItemType key) {
+    searchAndDelete(root, key);
+}
+
+bool BinaryTree::searchAndDelete(TreeType*& node, ItemType key) {
+    if(node == nullptr)
+	return false;
+	
+    else if(key.compareTo(node->key) == EQUAL) {
+	deleteNode(node);
+
+	return true;
+    }
+
+    else {
+	if(key.compareTo(node->key) == LESS)
+	    searchAndDelete(node->left, key);
+
+	else if(key.compareTo(node->key) == GREATER)
+	    searchAndDelete(node->right, key);
+    }
+
+    return false;
+}
+
+void BinaryTree::deleteNode(TreeType*& targetNode) {
+    TreeType* temp = targetNode;
+
+    // targetNode has two children
+    if(targetNode->left != nullptr && targetNode->right != nullptr) {
+        ItemType predecessorItem = getPredecessor(targetNode->left);
+	targetNode->key = predecessorItem;
+	searchAndDelete(targetNode->left, predecessorItem);
+    }
+    
+    // targetNode has one child
+    else if(targetNode->left != nullptr) {
+	targetNode = targetNode->left;
+
+	delete temp;
+    }
+
+    // targetNode has one child
+    else if(targetNode->right != nullptr) {
+	targetNode = targetNode->right;
+
+	delete temp;
+    }
+
+    // targetNode has no children
+    else {
+	targetNode = nullptr;
+	    
+	delete temp;
+    }
+}
+
+ItemType BinaryTree::getPredecessor(TreeType*& node) const {
+    if(node->right == nullptr)
+	return node->key;
+    else
+    	return getPredecessor(node->right);
+}
+
 void BinaryTree::retrieve(ItemType& item, bool& found) const {
     search(root, item, found);
 }
@@ -65,7 +129,7 @@ void BinaryTree::retrieve(ItemType& item, bool& found) const {
 void BinaryTree::search(TreeType* node, ItemType& item, bool& found) const {
     if(node == nullptr)
 	found = false;
-
+	
     else if(item.compareTo(node->key) == EQUAL)
 	found = true;
 

@@ -33,6 +33,15 @@ class BinaryTree {
     void deleteItem(ItemType key);
 
     // Author: Austin Schultz
+    bool searchAndDelete(TreeType*& node, ItemType key);
+    
+    // Author: Austin Schultz
+    void deleteNode(TreeType*& targetNode);
+
+    // Author: Austin Schultz
+    ItemType getPredecessor(TreeType*& node) const;
+    
+    // Author: Austin Schultz
     void retrieve(ItemType &item, bool &found) const;
 
     // Author: Austin Schultz
