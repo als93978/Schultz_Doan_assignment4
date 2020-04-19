@@ -68,6 +68,8 @@ class BinaryTree {
     // Author: David Doan
     int getLength() const; // returns the length of the tree
 
+    int calculateLength(TreeType* node) const;
+    
     // Author: Austin Schultz
     void getSameLevelNonsiblings(ItemType &key);
 };

@@ -127,8 +127,11 @@ void BinaryTree::retrieve(ItemType& item, bool& found) const {
 }
 
 void BinaryTree::search(TreeType* node, ItemType& item, bool& found) const {
-    if(node == nullptr)
+    if(node == nullptr) {
+	cout << "Item not in tree." << endl;
+
 	found = false;
+    }
 	
     else if(item.compareTo(node->key) == EQUAL)
 	found = true;
@@ -186,5 +189,13 @@ void BinaryTree::postOrderTraversal(TreeType* node) const {
 }
 
 int BinaryTree::getLength() const {
-    return length;
+    return calculateLength(root);
+}
+
+int BinaryTree::calculateLength(TreeType* node) const {
+    if(node == nullptr) {
+	return 0;
+    }
+
+    return calculateLength(node->left) + calculateLength(node->right) + 1;
 }
