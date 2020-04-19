@@ -15,19 +15,19 @@ class BinaryTree {
 
  public:
     // Author: David Doan
-    BinaryTree();
+    BinaryTree(); // constructor
 
     // Author: David Doan
-    ~BinaryTree();
+    ~BinaryTree(); // destructor
 
     // Author: David Doan
-    void clearAll(TreeType *tree);
+    void clearAll(TreeType *tree); // recursive function for the destructor
 
     // Author: David Doan
-    void insert(ItemType key);
+    void insert(ItemType key); // inserts a node with the value of key into the tree
 
     // Author: David Doan
-    void putItem(ItemType item, TreeType *&tree);
+    void putItem(ItemType item, TreeType *&tree); // recursive function for the insert function
 
     // Author: Austin Schultz
     void deleteItem(ItemType key);
@@ -48,7 +48,10 @@ class BinaryTree {
     void search(TreeType* node, ItemType& item, bool& found) const;
     
     // Author: David Doan
-    void preOrder() const;
+    void preOrder() const; // prints out the binary tree in pre-order traversal
+
+    // Author: David Doan
+    void preOrderTraversal(TreeType* node) const; // recursive function for the pre-order function
 
     // Author: Austin Schultz
     void inOrder() const;
@@ -63,7 +66,7 @@ class BinaryTree {
     void postOrderTraversal(TreeType* node) const;
     
     // Author: David Doan
-    int getLength() const;
+    int getLength() const; // returns the length of the tree
 
     // Author: Austin Schultz
     void getSameLevelNonsiblings(ItemType &key);

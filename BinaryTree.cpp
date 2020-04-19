@@ -18,11 +18,11 @@ void BinaryTree::clearAll(TreeType *tree) {
     }
 
     if (tree->left == nullptr) {
-	clearAll(tree->left);
+	clearAll(tree->left); // left subtree
     }
 
     if (tree->right == nullptr) {
-	clearAll(tree->right);
+	clearAll(tree->right); // right subtree
     }
 
     delete tree;
@@ -34,7 +34,7 @@ void BinaryTree::insert(ItemType key) {
 }
 
 void BinaryTree::putItem(ItemType item, TreeType *&tree) {
-    if (tree == nullptr) {
+    if (tree == nullptr) { // insertion position found
 	tree = new TreeType;
 	tree->right = nullptr;
 	tree->left = nullptr;
@@ -44,7 +44,7 @@ void BinaryTree::putItem(ItemType item, TreeType *&tree) {
     else {
 	
 	if (item.compareTo(tree->key) == LESS) {
-	    putItem(item, tree->left);
+	    putItem(item, tree->left); // insert in left subtree
 	}
 	
 	if (item.compareTo(tree->key) == EQUAL) {
@@ -53,7 +53,7 @@ void BinaryTree::putItem(ItemType item, TreeType *&tree) {
 	}
 
 	if (item.compareTo(tree->key) == GREATER) {
-	    putItem(item, tree->right);
+	    putItem(item, tree->right); // insert in right subtree
 	}
     }
 }
@@ -142,6 +142,19 @@ void BinaryTree::search(TreeType* node, ItemType& item, bool& found) const {
     }
 }
 
+void BinaryTree::preOrder() const {
+    preOrderTraversal(root);
+    cout << endl;
+}
+
+void BinaryTree::preOrderTraversal(TreeType* node) const {
+    if (node != nullptr) {
+	cout << node->key.getValue() << " ";
+	preOrderTraversal(node->left); // traverse the left subtree
+	preOrderTraversal(node->right); // traverse the right subtree
+    }
+}
+
 void BinaryTree::inOrder() const {
     inOrderTraversal(root);
     cout << endl;
@@ -172,3 +185,6 @@ void BinaryTree::postOrderTraversal(TreeType* node) const {
     }
 }
 
+int BinaryTree::getLength() const {
+    return length;
+}
