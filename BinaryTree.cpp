@@ -46,14 +46,15 @@ void BinaryTree::putItem(ItemType item, TreeType *&tree) {
 	if (item.compareTo(tree->key) == LESS) {
 	    putItem(item, tree->left); // insert in left subtree
 	}
-	
-	if (item.compareTo(tree->key) == EQUAL) {
-	    cout << "\nItem already exists" << endl;
-	    delete tree;
+
+	else if (item.compareTo(tree->key) == GREATER) {
+	    putItem(item, tree->right); // insert in right subtree
 	}
 
-	if (item.compareTo(tree->key) == GREATER) {
-	    putItem(item, tree->right); // insert in right subtree
+	else {
+	    cout << "\nItem already exists" << endl;
+	    delete tree;
+	    return;
 	}
     }
 }
