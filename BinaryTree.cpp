@@ -53,7 +53,7 @@ void BinaryTree::putItem(ItemType item, TreeType *&tree) {
 
 	else {
 	    cout << "\nItem already exists" << endl;
-	    delete tree;
+	    //delete tree;
 	    return;
 	}
     }
