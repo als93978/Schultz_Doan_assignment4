@@ -15,6 +15,10 @@ void BinaryTree::clearAll(TreeType *tree) {
     if (tree == nullptr)
 	return;
 
+    // essentially, do a postorder traversal because its the most efficient.
+    // go to the children first, delete those, and then delete the parents.
+    // so the leaves will be deleted first, then all the other nodes up to
+    // and including the root.
     clearAll(tree->left); // left subtree
     clearAll(tree->right); // right subtree
     delete tree;
@@ -54,23 +58,23 @@ void BinaryTree::deleteItem(ItemType key) {
 }
 
 bool BinaryTree::searchAndDelete(TreeType*& node, ItemType key) {
-    if(node == nullptr) {
+    if(node == nullptr) { // item does not exist
 	cout << "\nItem not in tree." << endl;
 	
 	return false;
     }
 	
-    else if(key.compareTo(node->key) == EQUAL) {
+    else if(key.compareTo(node->key) == EQUAL) { // found the node, now delete it
 	deleteNode(node);
 
 	return true;
     }
 
     else {
-	if(key.compareTo(node->key) == LESS)
+	if(key.compareTo(node->key) == LESS) // item is in left subtree, go there
 	    searchAndDelete(node->left, key);
 
-	else if(key.compareTo(node->key) == GREATER)
+	else if(key.compareTo(node->key) == GREATER) // item is in right subtree, go there
 	    searchAndDelete(node->right, key);
     }
 
@@ -110,6 +114,7 @@ void BinaryTree::deleteNode(TreeType*& targetNode) {
 }
 
 ItemType BinaryTree::getPredecessor(TreeType*& node) const {
+    // keep going right until we get to null
     if(node->right == nullptr)
 	return node->key;
     else
@@ -121,22 +126,22 @@ void BinaryTree::retrieve(ItemType& item, bool& found) const {
 }
 
 void BinaryTree::search(TreeType* node, ItemType& item, bool& found) const {
-    if(node == nullptr) {
+    if(node == nullptr) { // item does not exist
 	cout << "\nItem not in tree." << endl;
 
 	found = false;
     }
 	
-    else if(item.compareTo(node->key) == EQUAL) {
+    else if(item.compareTo(node->key) == EQUAL) { // item found
 	cout << "\nItem found in tree." << endl;
 	found = true;
     }
 
     else {
-	if(item.compareTo(node->key) == LESS)
+	if(item.compareTo(node->key) == LESS) // item is in left subtree, go there
 	    search(node->left, item, found);
 
-	else if(item.compareTo(node->key) == GREATER)
+	else if(item.compareTo(node->key) == GREATER) // item is in right subtree, go there
 	    search(node->right, item, found);
     }
 }
@@ -161,11 +166,11 @@ void BinaryTree::inOrder() const {
 
 void BinaryTree::inOrderTraversal(TreeType* node) const {
     if(node != nullptr) {
-	inOrderTraversal(node->left);
+	inOrderTraversal(node->left); // go to left subtree first
 
-	cout << node->key.getValue() << " ";
+	cout << node->key.getValue() << " "; // then the node
 
-	inOrderTraversal(node->right);
+	inOrderTraversal(node->right); // then the right subtree
     }
 }
 
@@ -176,11 +181,11 @@ void BinaryTree::postOrder() const {
 
 void BinaryTree::postOrderTraversal(TreeType* node) const {
     if(node != nullptr) {
-	postOrderTraversal(node->left);
+	postOrderTraversal(node->left); // go to left subtree
 	
-	postOrderTraversal(node->right);
+	postOrderTraversal(node->right); // then the right subtree
 	
-	cout << node->key.getValue() << " ";
+	cout << node->key.getValue() << " "; // and then the node
     }
 }
 
@@ -193,6 +198,8 @@ int BinaryTree::calculateLength(TreeType* node) const {
 	return 0;
     }
 
+    // the size/length of a BST is defined recursively as the size/length of the
+    // left subtree + the right subtree and the size of the root, which is 1.
     return calculateLength(node->left) + calculateLength(node->right) + 1;
 }
 

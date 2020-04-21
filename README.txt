@@ -8,15 +8,17 @@ README
 Group members
 -------------
 Austin Schultz - als93978@uga.edu
-       * Contributions: 
+       * Contributions: Functions mentioned in BinaryTree.h, some debugging of main, valgrind testing and debugging,
+       README.txt, some testing, some comments
        
 David Doan - dd67391@uga.edu
-       * Contributions: 
+       * Contributions: Functions mentioned in BinaryTree.h, ItemType.cpp, ItemType.h, some debugging of main, Makefile,
+       Bonus, some testing, some comments
 
-// The stuff below will be edited later
+
 Compiling
 ---------
-Ensure you are in the correct assignment directory (Schultz-Doan-assignment3).
+Ensure you are in the correct assignment directory (Schultz-Doan-assignment4).
 
 Then simply run:
 make compile
@@ -24,16 +26,15 @@ make compile
 gcc version 6.2.0 was used to compile for testing.
 
 To compile manually, run the following:
-g++ -g -Wall -O0 -pedantic-errors -o main ItemType.cpp CircularLinkedList.cpp Main.cpp
+g++ -g -Wall -O0 -pedantic-errors -o main ItemType.cpp BinaryTree.cpp Main.cpp
 
 To run
 ------
 Simply run:
-make run    **(note this only runs ./main input1.txt)
+make run    **(note this runs ./main input.txt)
 
 To run manually, run the following:
-./main input1.txt
-or ./main input.txt (if using input.txt, but eLC download came with input1.txt)
+./main input.txt
 or ./main [other input file]
 
 After running
