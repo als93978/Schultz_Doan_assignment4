@@ -67,10 +67,17 @@ class BinaryTree {
     // Author: David Doan
     int getLength() const; // returns the length of the tree
 
-    int calculateLength(TreeType* node) const;
+    // Author: Austin Schultz
+    int calculateLength(TreeType* node) const; // calculates the length
     
-    // Author: 
-    // void getSameLevelNonsiblings(ItemType &key);
+    // Author: David Doan
+    void getSameLevelNonsiblings(ItemType &key); // this function gets the values that are in the same level and not siblings
+
+    // Author: David Doan
+    void printSameLevelNonsiblings(TreeType *&tree, ItemType &item, int level, bool &found); // recursive function that prints the values that are in the same level and not siblings
+
+    // Author: David Doan
+    int findLevel(ItemType &item, TreeType *&tree, int level); // a recursive function that finds the level that the items are in
 };
 
 #endif

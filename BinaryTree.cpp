@@ -15,8 +15,8 @@ void BinaryTree::clearAll(TreeType *tree) {
     if (tree == nullptr)
 	return;
 
-    clearAll(tree->left);
-    clearAll(tree->right);
+    clearAll(tree->left); // left subtree
+    clearAll(tree->right); // right subtree
     delete tree;
 }
 
@@ -196,3 +196,67 @@ int BinaryTree::calculateLength(TreeType* node) const {
     return calculateLength(node->left) + calculateLength(node->right) + 1;
 }
 
+void BinaryTree::getSameLevelNonsiblings(ItemType &key) {
+    bool found = false;
+    int val = findLevel(key, root, 0);
+    printSameLevelNonsiblings(root, key, val + 1, found);
+
+    if (!found) {
+	cout << "No same level non siblings found" << endl;
+    }
+}
+
+void BinaryTree::printSameLevelNonsiblings(TreeType *&tree, ItemType &item, int level, bool &found) {
+    if (level < 2 || tree == nullptr) {
+	return;
+    }
+
+    if (level == 2) {
+	if (tree->left == nullptr) {
+	    return;
+	}
+
+	if (tree->right == nullptr) {
+	    return;
+	}
+
+	if (tree->left->key.getValue() == item.getValue() || tree->right->key.getValue() == item.getValue()) { // if values are siblings
+	    return;
+	}
+	 
+	if (tree->left != nullptr && tree->left->key.getValue() != item.getValue()) {
+	    cout << tree->left->key.getValue() << " "; // prints value in the left subtree that is nonsibling
+	    found = true;
+	}
+
+	if (tree->right != nullptr && tree->right->key.getValue() != item.getValue()) {
+	    cout << tree->right->key.getValue() << " "; // prints value in the right subtree that is nonsibling
+	    found = true;
+	}
+    }
+
+    else if (level > 2) {
+	printSameLevelNonsiblings(tree->left, item, level-1, found);
+	printSameLevelNonsiblings(tree->right, item, level-1, found);
+    }
+}
+
+int BinaryTree::findLevel(ItemType &item, TreeType *&tree, int level) {
+    if (tree == nullptr) {
+	return 0;
+    }
+
+    if (tree->key.getValue() == item.getValue()) {
+	return level;
+    }
+
+    int traverseLevel = findLevel(item, tree->left, level + 1);
+
+    if (traverseLevel != 0) {
+	return traverseLevel;
+    }
+
+    else {
+	return findLevel(item, tree->right, level + 1);
+    }
+}

@@ -147,28 +147,35 @@ int main(int argc, char * argv[]) {
     	    break;
     	}
 	    
-    	case 'n': {
+    	case 'n': { // in-order command that prints the binary tree in in-order-traverse
     	    cout << "In-Order: " << endl;
     	    tree.inOrder();
     	    cout << endl;
     	    break;
     	}  
 		
-    	case 'p': {
+    	case 'p': { // pre-order command that prints the binary tree in pre-order traverse
     	    cout << "Pre-Order: " << endl;
     	    tree.preOrder();
     	    cout << endl;
     	    break;
     	}
 	    
-    	case 'o': {
+    	case 'o': { // post-order command that prints the binary tree in post-order traverse
     	    cout << "Post-Order: " << endl;
     	    tree.postOrder();
     	    cout << endl;
     	    break;
     	}
 	    
-    	case 'c': {
+    	case 'c': { // this command finds the value of nodes that are in the same level and not siblings
+	    cout << "Item to find same level nonsiblings: ";
+	    int value;
+	    cin >> value;
+	    cin.ignore(1, '\n');
+	    ItemType item(value);
+	    tree.getSameLevelNonsiblings(item);
+	    cout << endl;
     	    break;
     	}
 	    
