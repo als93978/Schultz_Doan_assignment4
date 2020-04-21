@@ -11,7 +11,6 @@ struct TreeType {
 
 class BinaryTree {
     TreeType *root;
-    int length;
 
  public:
     // Author: David Doan
@@ -70,8 +69,8 @@ class BinaryTree {
 
     int calculateLength(TreeType* node) const;
     
-    // Author: Austin Schultz
-    void getSameLevelNonsiblings(ItemType &key);
+    // Author: 
+    // void getSameLevelNonsiblings(ItemType &key);
 };
 
 #endif
